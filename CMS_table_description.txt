@@ -1,0 +1,77 @@
+
+mysql> show tables;
++-----------------------------------+
+| Tables_in_crime_management_system |
++-----------------------------------+
+| admin                             |
+| crime                             |
+| criminal                          |
+| police                            |
+| police_station                    |
++-----------------------------------+
+5 rows in set (0.02 sec)
+
+mysql> desc admin;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| admin_id       | int         | NO   | PRI | NULL    | auto_increment |
+| admin_username | varchar(15) | NO   |     | NULL    |                |
+| admin_password | varchar(15) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc police_station;
++----------------------+-------------+------+-----+---------+----------------+
+| Field                | Type        | Null | Key | Default | Extra          |
++----------------------+-------------+------+-----+---------+----------------+
+| police_station_ID    | int         | NO   | PRI | NULL    | auto_increment |
+| police_station_name  | varchar(25) | NO   |     | NULL    |                |
+| police_station_area  | varchar(50) | NO   |     | NULL    |                |
+| police_station_phone | int         | NO   |     | NULL    |                |
+| SHO_of_station       | varchar(12) | NO   |     | NULL    |                |
+| admin_id             | int         | YES  | MUL | NULL    |                |
++----------------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> desc police;
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| police_ID         | int         | NO   | PRI | NULL    | auto_increment |
+| police_name       | varchar(15) | NO   |     | NULL    |                |
+| police_rank       | varchar(12) | NO   |     | NULL    |                |
+| police_phone      | varchar(12) | YES  |     | NULL    |                |
+| police_station_ID | int         | YES  | MUL | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> desc crime;
++---------------------+--------------+------+-----+---------+----------------+
+| Field               | Type         | Null | Key | Default | Extra          |
++---------------------+--------------+------+-----+---------+----------------+
+| crimeId             | int          | NO   | PRI | NULL    | auto_increment |
+| crime_type          | varchar(15)  | NO   |     | NULL    |                |
+| crime_desc          | varchar(100) | NO   |     | NULL    |                |
+| victims             | varchar(12)  | NO   |     | NULL    |                |
+| main_suspect        | varchar(12)  | YES  |     | NULL    |                |
+| crime_date_and_time | datetime     | NO   |     | NULL    |                |
+| crime_status        | varchar(12)  | NO   |     | NULL    |                |
+| police_station_ID   | int          | YES  | MUL | NULL    |                |
++---------------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> desc criminal;
++--------------------+-------------+------+-----+---------+----------------+
+| Field              | Type        | Null | Key | Default | Extra          |
++--------------------+-------------+------+-----+---------+----------------+
+| criminal_ID        | int         | NO   | PRI | NULL    | auto_increment |
+| criminal_name      | varchar(15) | NO   |     | NULL    |                |
+| criminal_age       | int         | YES  |     | NULL    |                |
+| criminal_gender    | varchar(12) | NO   |     | NULL    |                |
+| criminal_face_mark | varchar(12) | YES  |     | NULL    |                |
+| arrested_area      | varchar(15) | NO   |     | NULL    |                |
+| police_station_ID  | int         | YES  | MUL | NULL    |                |
+| police_ID          | int         | YES  | MUL | NULL    |                |
++--------------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
