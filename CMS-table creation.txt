@@ -1,0 +1,65 @@
+
+create table crime(
+crimeId int PRIMARY KEY AUTO_INCREMENT,
+crime_type varchar(15) NOT NULL,
+crime_desc varchar(100) NOT NULL,
+victims varchar(12) NOT NULL,
+main_suspect varchar(12),
+crime_date_and_time DATETIME NOT NULL,
+crime_status varchar(12) NOT NULL,
+police_station_ID int,
+FOREIGN KEY (police_station_ID) REFERENCES police_station (police_station_ID)
+);
+
+
+create table police_station (
+police_station_ID int PRIMARY KEY AUTO_INCREMENT,
+police_station_name varchar(25) NOT NULL,
+police_station_area varchar(50) NOT NULL,
+police_station_phone int NOT NULL,
+SHO_of_station varchar(12) NOT NULL,
+admin_id int,
+foreign key (admin_id) references admin (admin_id) ON UPDATE CASCADE
+);
+
+create table admin (
+admin_id int PRIMARY KEY AUTO_INCREMENT,
+admin_username varchar(15) NOT NULL, 
+admin_password varchar(15) NOT NULL
+);
+
+create table police (
+police_ID int PRIMARY KEY AUTO_INCREMENT,
+police_name varchar(15) NOT NULL,
+police_rank varchar(12) NOT NULL,
+police_phone varchar(12),
+police_station_ID int,
+FOREIGN KEY (police_station_ID) REFERENCES police_station (police_station_ID) ON UPDATE CASCADE
+);
+
+
+create table criminal (
+criminal_ID int PRIMARY KEY AUTO_INCREMENT,
+criminal_name varchar(15) NOT NULL,
+criminal_age int,
+criminal_gender varchar(12) NOT NULL,
+criminal_face_mark varchar(12),
+arrested_area varchar(15) NOT NULL,
+police_station_ID int,
+police_ID int,
+crimeID int,
+FOREIGN KEY (police_station_ID) REFERENCES police_station (police_station_ID) ON UPDATE CASCADE,
+FOREIGN KEY (police_ID) REFERENCES police (police_ID) ON UPDATE CASCADE,
+FOREIGN KEY (crimeID) REFERENCES police (crimeID)
+);
+
+
+
+create table crime_and_criminal (
+crimeId int,
+criminal_ID int
+FOREIGN KEY (crimeId) REFERENCES crime (crimeId) ON UPDATE CASCADE,
+FOREIGN KEY (criminal_ID) REFERENCES criminal (criminal_ID) ON UPDATE CASCADE
+);
+
+
