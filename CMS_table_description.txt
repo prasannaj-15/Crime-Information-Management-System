@@ -73,5 +73,6 @@ mysql> desc criminal;
 | arrested_area      | varchar(15) | NO   |     | NULL    |                |
 | police_station_ID  | int         | YES  | MUL | NULL    |                |
 | police_ID          | int         | YES  | MUL | NULL    |                |
+| crimeId            | int         | YES  | MUL | NULL    |                |
 +--------------------+-------------+------+-----+---------+----------------+
-8 rows in set (0.01 sec)
+9 rows in set (0.00 sec)
