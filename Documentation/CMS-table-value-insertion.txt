@@ -6,3 +6,20 @@ insert into admin values (
 'admin',
 'admin@123'
 );
+--------------------------
+//police
+
+insert into police (
+police_name,
+police_rank,
+police_phone,
+police_station_ID
+) 
+values 
+(?,?,?,?)
+
+--------------------------
+
+//police_station
+
+insert into police_station values(?,?,?,?,?,?)

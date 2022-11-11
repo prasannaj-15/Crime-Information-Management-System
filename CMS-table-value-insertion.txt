@@ -1,0 +1,30 @@
+
+//admin
+--------
+insert into admin values (
+1,
+'admin',
+'admin@123'
+);
+
+
+//police station
+----------------
+insert into police_station values (
+1,
+'kolava police station',
+'kolva,mumbai',
+123101,
+'rahul patil',
+1
+);
+
+//police
+---------
+insert into police values (
+1,
+'rahul patil',
+'SHO',
+'987654321',
+1
+);

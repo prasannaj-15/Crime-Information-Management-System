@@ -8,40 +8,34 @@ import com.model.Police;
 
 public class RegisterPolice {
 	
-	static void register() {
-		
-		PoliceDao dao = new PoliceDaoImpl();
-		
-		Police police = new Police(3,"Nitin patil","Constable","956158741",1);
-		
-		String result = dao.addPoliceInfo(police);
-		 
-		System.out.println(result);
-		
-	}
-
-	static void display() {
-		System.out.println("Inside display method...");
-	}
-	
-	public static void main(String[] args) {
+	static void registerPolice() {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Select option");
-		System.out.println("1.register police info");
-		System.out.println("2.display police info");
+		System.out.println("---Enter new Police information--");
 		
-		int choice = sc.nextInt();
+		System.out.println("Enter Name :");
+		String name = sc.nextLine();
 		
-		switch(choice) {
+		System.out.println("Enter Rank :");
+		String rank = sc.next();
 		
-		case 1: register();break;
-		case 2: display();break;
-		default: System.out.println("please select correce option");
-		}
+		System.out.println("Enter phone number :");
+		String phone = sc.next();
+		
+		System.out.println("Enter police station ID :");
+		int ps_id = sc.nextInt();
 		
 		
+		
+		PoliceDao dao = new PoliceDaoImpl();
+		
+		Police police = new Police(name,rank,phone,ps_id);
+		
+		String result = dao.addPoliceInfo(police);
+		 
+		System.out.println(result+"\n");
+
 		
 	}
 

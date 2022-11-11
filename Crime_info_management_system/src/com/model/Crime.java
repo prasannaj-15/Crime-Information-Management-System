@@ -1,5 +1,9 @@
 package com.model;
 
+import java.util.Date;
+
+//import java.sql.Date;
+
 public class Crime {
 
 	private int crimeID;
@@ -7,15 +11,16 @@ public class Crime {
 	private String c_desc;
 	private String victims;
 	private String suspects;
-	private String c_date;
-	private String police_st_ID;
+	private Date c_date;
+	private String status;
+	private int police_st_ID;
 	
 	public Crime() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Crime(int crimeID, String c_type, String c_desc, String victims, String suspects, String c_date,
-			String police_st_ID) {
+	public Crime(int crimeID, String c_type, String c_desc, String victims, String suspects, Date c_date, String status,
+			int police_st_ID) {
 		super();
 		this.crimeID = crimeID;
 		this.c_type = c_type;
@@ -23,6 +28,7 @@ public class Crime {
 		this.victims = victims;
 		this.suspects = suspects;
 		this.c_date = c_date;
+		this.status = status;
 		this.police_st_ID = police_st_ID;
 	}
 
@@ -66,26 +72,36 @@ public class Crime {
 		this.suspects = suspects;
 	}
 
-	public String getC_date() {
+	public Date getC_date() {
 		return c_date;
 	}
 
-	public void setC_date(String c_date) {
+	public void setC_date(Date c_date) {
 		this.c_date = c_date;
 	}
+	
+	
 
-	public String getPolice_st_ID() {
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getPolice_st_ID() {
 		return police_st_ID;
 	}
 
-	public void setPolice_st_ID(String police_st_ID) {
+	public void setPolice_st_ID(int police_st_ID) {
 		this.police_st_ID = police_st_ID;
 	}
 
 	@Override
 	public String toString() {
 		return "crime [crimeID=" + crimeID + ", c_type=" + c_type + ", c_desc=" + c_desc + ", victims=" + victims
-				+ ", suspects=" + suspects + ", c_date=" + c_date + ", police_st_ID=" + police_st_ID + "]";
+				+ ", suspects=" + suspects + ", c_date=" + c_date + ", status=" + status + ", police_st_ID=" + police_st_ID + "]";
 	}
 	
 	

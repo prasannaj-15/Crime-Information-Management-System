@@ -12,6 +12,18 @@ public class Police {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
+	public Police(String police_name, String rank, String phone, int police_st_ID) {
+		super();
+		this.police_name = police_name;
+		this.rank = rank;
+		this.phone = phone;
+		this.police_st_ID = police_st_ID;
+	}
+
+
+
 	public Police(int police_ID, String police_name, String rank, String phone, int police_st_ID) {
 		super();
 		this.police_ID = police_ID;
