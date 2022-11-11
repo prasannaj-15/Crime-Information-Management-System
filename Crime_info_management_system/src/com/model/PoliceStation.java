@@ -12,6 +12,19 @@ public class PoliceStation {
 	public PoliceStation() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public PoliceStation(int police_st_ID, String name, String police_st_area, int phone, String sho) {
+		super();
+		this.police_st_ID = police_st_ID;
+		this.name = name;
+		this.police_st_area = police_st_area;
+		this.phone = phone;
+		this.sho = sho;
+	}
+
+
 
 	public PoliceStation(int police_st_ID, String name, String police_st_area, int phone, String sho, int admin_ID) {
 		super();
