@@ -26,11 +26,16 @@ public class RegisterPolice {
 		System.out.println("Enter police station ID :");
 		int ps_id = sc.nextInt();
 		
+		System.out.println("Enter email Id :");
+		String email = sc.next();
+		
+		System.out.println("Enter password :");
+		String password = sc.next();
 		
 		
 		PoliceDao dao = new PoliceDaoImpl();
 		
-		Police police = new Police(name,rank,phone,ps_id);
+		Police police = new Police(name,rank,phone,ps_id,email,password);
 		
 		String result = dao.addPoliceInfo(police);
 		 

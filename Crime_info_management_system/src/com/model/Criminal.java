@@ -9,6 +9,8 @@ public class Criminal {
 	private String face_mark;
 	private String area;
 	private int police_st_ID;
+	private int police_ID;
+	private int crime_Id;
 	
 	
 	public Criminal() {
@@ -16,8 +18,9 @@ public class Criminal {
 	}
 
 
+	
 	public Criminal(int criminal_ID, String c_name, int c_age, String gender, String face_mark, String area,
-			int police_st_ID) {
+			int police_st_ID, int police_ID, int crime_Id) {
 		super();
 		this.criminal_ID = criminal_ID;
 		this.c_name = c_name;
@@ -26,7 +29,10 @@ public class Criminal {
 		this.face_mark = face_mark;
 		this.area = area;
 		this.police_st_ID = police_st_ID;
+		this.police_ID = police_ID;
+		this.crime_Id = crime_Id;
 	}
+
 
 
 	public int getCriminal_ID() {
@@ -98,12 +104,42 @@ public class Criminal {
 		this.police_st_ID = police_st_ID;
 	}
 
+	
+
+	public int getPolice_ID() {
+		return police_ID;
+	}
+
+
+
+	public void setPolice_ID(int police_ID) {
+		this.police_ID = police_ID;
+	}
+
+
+
+	public int getCrime_Id() {
+		return crime_Id;
+	}
+
+
+
+	public void setCrime_Id(int crime_Id) {
+		this.crime_Id = crime_Id;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "Criminal [criminal_ID=" + criminal_ID + ", c_name=" + c_name + ", c_age=" + c_age + ", gender=" + gender
-				+ ", face_mark=" + face_mark + ", area=" + area + ", police_st_ID=" + police_st_ID + "]";
+				+ ", face_mark=" + face_mark + ", area=" + area + ", police_st_ID=" + police_st_ID + ", police_ID="
+				+ police_ID + ", crime_Id=" + crime_Id + "]";
 	}
+
+
+
+	
 	
 	
 }

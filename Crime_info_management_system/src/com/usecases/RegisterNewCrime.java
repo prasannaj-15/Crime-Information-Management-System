@@ -35,13 +35,9 @@ public class RegisterNewCrime {
 		String suspect = sc.nextLine();
 		
 		System.out.println("Enter crime Date and Time :");
-		String dt = sc.nextLine();
-		Date date = new Date();
-		try {
-			date = (Date)formatter.parse(dt);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		System.out.println("Use 'yyyy-mm-dd' format to add date and time:");
+		String date = sc.nextLine();
+		
 		
 		System.out.println("please select crime status :");
 		System.out.println("1. Solved");
