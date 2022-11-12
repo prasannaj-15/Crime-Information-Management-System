@@ -6,3 +6,42 @@ insert into admin values (
 'admin',
 'admin@123'
 );
+
+
+insert into crime values (
+101,
+'murder',
+'A man killed his wife',
+'reena kureshi',
+'rashid kureshi',
+'2022-10-15',
+'Not solved',
+222
+);
+
+
+select * from crime where police_station_ID = 
+(select police_station_ID from police_station where police_station_name = 'juhu police station'); 
+
+//count solved crimes
+select count(crimeId) solved_crime from crime where crime_status = 'solved' 
+
+//count unsolved crimes
+select count(crimeId) unsolved_crime from crime where crime_status = 'Unsolved';
+
+
+// get current months crime
+select * from crime where Month(crime_date_and_time) = Month(current_date());
+
+//update crime status
+ update crime set crime_status = 'Unsolved' where crimeId = 101;
+
+
+
+
+
+
+
+
+
+

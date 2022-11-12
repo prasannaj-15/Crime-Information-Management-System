@@ -19,9 +19,9 @@ public class GetPoliceDetails {
 		
 		List<Police> policeDetails = dao.getAllDetailsOfPolice();
 
-		System.out.println("======================================");
+		System.out.println("=============================================================");
 		System.out.println("\t---All Police Informations---");
-		System.out.println("======================================");
+		System.out.println("=============================================================");
 		
 		for(Police p1 : policeDetails) {
 			
@@ -30,13 +30,15 @@ public class GetPoliceDetails {
 			String rank = p1.getRank();
 			String phone = p1.getPhone();
 			int ps_id = p1.getPolice_st_ID();
+			String email = p1.getEmail();
 			
 			System.out.print("\tPolice id : "+pid+"\n\tPolice Name : "
 								+name+"\n\tPolice rank : "+ rank
 								+"\n\tPolice Phone : "+phone
-								+"\n\tPolice Station ID : "+ ps_id);
+								+"\n\tPolice Station ID : "+ ps_id
+								+"\n\tPolice Email :"+email);
 			System.out.println();
-			System.out.println("--------------------------------------");
+			System.out.println("-------------------------------------------------------------");
 		}
 		
 	}

@@ -2,7 +2,6 @@ package com.model;
 
 import java.util.Date;
 
-//import java.sql.Date;
 
 public class Crime {
 
@@ -11,15 +10,21 @@ public class Crime {
 	private String c_desc;
 	private String victims;
 	private String suspects;
-	private Date c_date;
+	private String c_date;
 	private String status;
 	private int police_st_ID;
+
+	//solved and unsolved crimes
+	private int solved;
+	private int unsolved;
+	
 	
 	public Crime() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Crime(int crimeID, String c_type, String c_desc, String victims, String suspects, Date c_date, String status,
+	
+	public Crime(int crimeID, String c_type, String c_desc, String victims, String suspects, String c_date, String status,
 			int police_st_ID) {
 		super();
 		this.crimeID = crimeID;
@@ -31,6 +36,17 @@ public class Crime {
 		this.status = status;
 		this.police_st_ID = police_st_ID;
 	}
+
+	
+	
+
+
+	public Crime(int solved, int unsolved) {
+		super();
+		this.solved = solved;
+		this.unsolved = unsolved;
+	}
+
 
 	public int getCrimeID() {
 		return crimeID;
@@ -72,11 +88,11 @@ public class Crime {
 		this.suspects = suspects;
 	}
 
-	public Date getC_date() {
+	public String getC_date() {
 		return c_date;
 	}
 
-	public void setC_date(Date c_date) {
+	public void setC_date(String c_date) {
 		this.c_date = c_date;
 	}
 	
@@ -98,11 +114,32 @@ public class Crime {
 		this.police_st_ID = police_st_ID;
 	}
 
+	
+//	grtter and setter for solved and unsolved crimes
+
+	public int getSolved() {
+		return solved;
+	}
+
+
+	public void setSolved(int solved) {
+		this.solved = solved;
+	}
+
+
+	public int getUnsolved() {
+		return unsolved;
+	}
+
+
+	public void setUnsolved(int unsolved) {
+		this.unsolved = unsolved;
+	}
+
 	@Override
 	public String toString() {
 		return "crime [crimeID=" + crimeID + ", c_type=" + c_type + ", c_desc=" + c_desc + ", victims=" + victims
 				+ ", suspects=" + suspects + ", c_date=" + c_date + ", status=" + status + ", police_st_ID=" + police_st_ID + "]";
 	}
-	
 	
 }
