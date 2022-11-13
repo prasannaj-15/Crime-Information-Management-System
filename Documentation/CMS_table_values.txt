@@ -1,0 +1,46 @@
+
+mysql> select * from police_station;
++-------------------+-----------------------+---------------------+----------------------+----------------+----------+
+| police_station_ID | police_station_name   | police_station_area | police_station_phone | SHO_of_station | admin_id |
++-------------------+-----------------------+---------------------+----------------------+----------------+----------+
+|                 1 | kolava police station | kolva,mumbai        |               123101 | rahul patil    |        1 |
+|               222 | juhu police station   | juhu,mumbai         |               222101 | karan patel    |        1 |
+|               333 | shivaji nagar         | shivaji nagar,pune  |               333101 | Ramesh patil   |        1 |
+|               444 | thane                 | thane,mumbai        |               444101 | Ravi kumar     |        1 |
+|               555 | viman nagar           | viman nagar,pune    |               555101 | Nihal Attar    |        1 |
++-------------------+-----------------------+---------------------+----------------------+----------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from police;
++-----------+---------------+-------------+--------------+-------------------+--------------+-----------------+
+| police_ID | police_name   | police_rank | police_phone | police_station_ID | police_email | police_password |
++-----------+---------------+-------------+--------------+-------------------+--------------+-----------------+
+|         8 | Ravi kishan   | ASI         | 256314       |                 1 | ravik@123    | ravi123         |
+|         9 | Nihar Attar   | S.H.O       | 456321       |               555 | nihal@123    | nihal123        |
+|        10 | Ravi kumar    | S.H.O       | 854796       |               444 | ravi@123     | ravi123         |
+|        11 | Ramesh patil  | S.H.O       | 896574       |               333 | ramesh@123   | ramesh123       |
+|        12 | karan patel   | S.H.O       | 652341       |               222 | karan@123    | karan123        |
+|        13 | Rahul patil   | S.H.O       | 856974       |                 1 | rahul@123    | rahul123        |
+|        14 | satish kharat | constable   | 123654       |               333 | satish@123   | satish123       |
+|        16 | kamalesh jain | constable   | 1236985      |               555 | kamalesh@123 | kamalesh123     |
+|        17 | dinkar jha    | A.S.I       | 856932       |               555 | dinkar@123   | dinkar123       |
++-----------+---------------+-------------+--------------+-------------------+--------------+-----------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from crime;
++---------+------------+-----------------------------+---------------+----------------+---------------------+--------------+-------------------+
+| crimeId | crime_type | crime_desc                  | victims       | main_suspect   | crime_date_and_time | crime_status | police_station_ID |
++---------+------------+-----------------------------+---------------+----------------+---------------------+--------------+-------------------+
+|     101 | murder     | A man killed his wife       | reena kureshi | rashid kureshi | 2022-10-15          | solved       |               222 |
+|     201 | robbery    | A man rob a gold shop       | anand parekh  | krishna kumar  | 2022-11-02          | Solved       |               222 |
+|     301 | murder     | a wife murdered her husband | chirag singh  | neeta singh    | 2022-11-11          | Unsolved     |               444 |
++---------+------------+-----------------------------+---------------+----------------+---------------------+--------------+-------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from criminal;
++-------------+---------------+--------------+-----------------+--------------------+---------------+-------------------+-----------+---------+
+| criminal_ID | criminal_name | criminal_age | criminal_gender | criminal_face_mark | arrested_area | police_station_ID | police_ID | crimeId |
++-------------+---------------+--------------+-----------------+--------------------+---------------+-------------------+-----------+---------+
+|         555 | krishna kumar |           45 | male            | cut on the nose    | mumbai        |                 1 |         8 |     201 |
++-------------+---------------+--------------+-----------------+--------------------+---------------+-------------------+-----------+---------+
+1

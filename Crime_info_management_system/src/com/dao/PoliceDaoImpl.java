@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.intr.PoliceDao;
+import com.exceptions.PoliceException;
 import com.model.Police;
 import com.utility.DBUtil;
 
@@ -52,7 +53,7 @@ public class PoliceDaoImpl implements PoliceDao {
 	// get Police details
 	
 	@Override
-	public List<Police> getAllDetailsOfPolice() {
+	public List<Police> getAllDetailsOfPolice() throws PoliceException {
 		
 		List<Police> policeDetails = new ArrayList<>();
 		
@@ -80,10 +81,13 @@ public class PoliceDaoImpl implements PoliceDao {
 			 
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new PoliceException(e.getMessage());
 		}
 		
-		
+		if(policeDetails.size()==0) {
+			throw new PoliceException("No Police records are found...");
+		}
 		
 		return policeDetails;
 		
