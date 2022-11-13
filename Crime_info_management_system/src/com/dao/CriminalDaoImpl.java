@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.intr.CriminalDao;
+import com.exceptions.CriminalException;
 import com.model.Crime;
 import com.model.Criminal;
 import com.utility.DBUtil;
@@ -54,7 +55,7 @@ public class CriminalDaoImpl implements CriminalDao{
 	}
 
 	@Override
-	public List<Criminal> getAllCriminalsDetails() {
+	public List<Criminal> getAllCriminalsDetails() throws CriminalException{
 
 		List<Criminal> criminalDetails = new ArrayList<>();
 		
@@ -85,7 +86,12 @@ public class CriminalDaoImpl implements CriminalDao{
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new CriminalException(e.getMessage());
+		}
+		
+		if(criminalDetails.size() == 0) {
+			throw new CriminalException("Criminal records are not found..");
 		}
 		
 		return criminalDetails;

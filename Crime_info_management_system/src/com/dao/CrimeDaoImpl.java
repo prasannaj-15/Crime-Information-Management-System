@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.intr.CrimeDao;
+import com.exceptions.CrimeException;
 import com.model.Crime;
 import com.utility.DBUtil;
 
@@ -51,7 +52,7 @@ public class CrimeDaoImpl implements CrimeDao{
 	}
 
 	@Override
-	public List<Crime> getAllCrimeDetails() {
+	public List<Crime> getAllCrimeDetails()throws CrimeException {
 		
 		List<Crime> crimeDetails = new ArrayList<>();
 		
@@ -82,14 +83,19 @@ public class CrimeDaoImpl implements CrimeDao{
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new CrimeException(e.getMessage());
 		}
+		
+		
+		if(crimeDetails.size() == 0)
+			throw new CrimeException("Crime Records Not found..");
 		
 		return crimeDetails;
 	}
 
 	@Override
-	public List<Crime> getPoliceStationWiseCrimeDetails(String police_station) {
+	public List<Crime> getPoliceStationWiseCrimeDetails(String police_station) throws CrimeException {
 		
 		List<Crime> policeStationWisecrimeDetails = new ArrayList<>();
 		
@@ -123,15 +129,19 @@ public class CrimeDaoImpl implements CrimeDao{
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new CrimeException(e.getMessage());
 		}
+		
+		if(policeStationWisecrimeDetails.size() == 0)
+			throw new CrimeException("Not found any crime records within this police station");
 		
 		return policeStationWisecrimeDetails;
 		
 	}
 
 	@Override
-	public List<Crime> getAreaWiseCrimeDetails(String area) {
+	public List<Crime> getAreaWiseCrimeDetails(String area)throws CrimeException {
 		
 		
 		List<Crime> areaWisecrimeDetails = new ArrayList<>();
@@ -166,7 +176,12 @@ public class CrimeDaoImpl implements CrimeDao{
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new CrimeException(e.getMessage());
+		}
+		
+		if(areaWisecrimeDetails.size() == 0) {
+			throw new CrimeException("No Crime records are found in this area..");
 		}
 		
 		return areaWisecrimeDetails;
@@ -213,7 +228,7 @@ public class CrimeDaoImpl implements CrimeDao{
 	}
 
 	@Override
-	public List<Crime> getCurrentMonthsCrimeRecords() {
+	public List<Crime> getCurrentMonthsCrimeRecords()throws CrimeException {
 		
 		List<Crime> currentMonthCrimeRecord = new ArrayList<>();
 		
@@ -247,7 +262,12 @@ public class CrimeDaoImpl implements CrimeDao{
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new CrimeException(e.getMessage());
+		}
+		
+		if(currentMonthCrimeRecord.size() == 0) {
+			throw new CrimeException("This month zero crimes registered...");
 		}
 		
 		return currentMonthCrimeRecord;

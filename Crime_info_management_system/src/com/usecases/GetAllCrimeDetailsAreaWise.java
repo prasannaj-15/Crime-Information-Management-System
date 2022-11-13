@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.dao.CrimeDaoImpl;
 import com.dao.intr.CrimeDao;
+import com.exceptions.CrimeException;
 import com.model.Crime;
 
 public class GetAllCrimeDetailsAreaWise {
@@ -18,9 +19,10 @@ public class GetAllCrimeDetailsAreaWise {
 			
 			CrimeDao dao = new CrimeDaoImpl();
 			
-			List<Crime> crime = dao.getAreaWiseCrimeDetails(area);
 			
-			 	
+			try {
+				List<Crime> crime = dao.getAreaWiseCrimeDetails(area);
+				
 				System.out.println("=============================================================");
 				System.out.println("\t---All Crime Informations area wise---");
 				System.out.println("=============================================================");
@@ -49,6 +51,16 @@ public class GetAllCrimeDetailsAreaWise {
 					System.out.println();
 					System.out.println("-------------------------------------------------------------");
 				}
+				
+				
+			} catch (CrimeException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+			
+			 	
+				
 	}
 	
 }

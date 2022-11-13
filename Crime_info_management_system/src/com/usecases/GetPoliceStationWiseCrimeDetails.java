@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.dao.CrimeDaoImpl;
 import com.dao.intr.CrimeDao;
+import com.exceptions.CrimeException;
 import com.model.Crime;
 
 public class GetPoliceStationWiseCrimeDetails {
@@ -18,9 +19,10 @@ public class GetPoliceStationWiseCrimeDetails {
 		
 		CrimeDao dao = new CrimeDaoImpl();
 		
-		List<Crime> crime = dao.getPoliceStationWiseCrimeDetails(police_station);
 		
-		 	
+		try {
+			List<Crime> crime = dao.getPoliceStationWiseCrimeDetails(police_station);
+			
 			System.out.println("=============================================================");
 			System.out.println("\t---All Crime Informations---");
 			System.out.println("=============================================================");
@@ -49,6 +51,16 @@ public class GetPoliceStationWiseCrimeDetails {
 				System.out.println();
 				System.out.println("-------------------------------------------------------------");
 			}
+			
+			
+		} catch (CrimeException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
+		 	
+			
 		 
 	}
 
