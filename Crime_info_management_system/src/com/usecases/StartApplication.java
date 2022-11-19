@@ -22,7 +22,7 @@ public class StartApplication {
 		int ch = sc.nextInt();
 		
 		switch(ch) {
-		case 1: RegisterPoliceStation.registerPoliceStation();break;
+		case 1: GetAdminDetails.getAdminDetails();break;
 		case 2: GetAllPoliceStationDetails.getAllPoliceStationDetails();break;
 		case 3: return;
 		default:System.out.println("please select correct option");
