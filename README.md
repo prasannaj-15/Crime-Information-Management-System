@@ -15,10 +15,15 @@ The main aim of this system is to maintain and manage the detail information of 
 
 ## Entity Relationship Diagram
 
-[ER Diagram](./Documentation/crime_management_system_ERD.png)
+![ER Diagram](./Documentation/crime_management_system_ERD.png)
 
+# Tables
+- police station
+- police
+- crime
+- criminal
 
 ## Demo
 
-<a href="https://drive.google.com/file/d/1zQeu6Ww-N9064yNgBn4iNM8JAr12mbNP/view?usp=share_link"> Demo Link</a>
+<a href="https://drive.google.com/file/d/1zQeu6Ww-N9064yNgBn4iNM8JAr12mbNP/view?usp=share_link" target="_blank"> Demo Link</a>
 
